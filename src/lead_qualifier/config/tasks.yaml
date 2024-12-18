@@ -1,0 +1,78 @@
+fetch_web_data:
+  description: >
+    Retrieve publicly available information about the lead using Serper Dev Tool API.
+    Focus on recent news, mentions, and relevant company details.
+  expected_output: >
+    JSON data containing relevant web search results.
+  agent: web_search_agent
+  inputs:
+    - name: {lead}
+      type: string
+      description: The name of the lead to search for.
+  outputs:
+    - name: web_data
+      type: json
+      description: JSON data containing relevant web search results.
+
+fetch_linkedin_data:
+  description: >
+    Query LinkedIn API to gather professional profile information of the lead, including
+    current role, company, and education history.
+  expected_output: >
+    JSON data containing LinkedIn profile information.
+  agent: linkedin_query_agent
+  inputs:
+    - name: {lead}
+      type: string
+      description: The name of the lead to search for on LinkedIn.
+  outputs:
+    - name: linkedin_data
+      type: json
+      description: JSON data containing LinkedIn profile information.
+
+fetch_crm_data:
+  description: >
+    Query the internal CRM system for existing lead records, historical interactions,
+    and notes to inform engagement strategies.
+  expected_output: >
+    JSON data containing lead information from the internal CRM.
+  agent: crm_query_agent
+  inputs:
+    - name: {lead}
+      type: string
+      description: The name of the lead to query in the CRM.
+  outputs:
+    - name: crm_data
+      type: json
+      description: JSON data containing lead information from the internal CRM.
+
+synthesize_data:
+  description: >
+    Combine data from web searches, LinkedIn profiles, and CRM records to generate
+    a professional one-pager summary for the lead. Include a bio, conversation starters,
+    potential services, and next steps.
+  expected_output: >
+    A formatted one-page summary for the lead, including bio, conversation starters,
+    service suggestions, and next steps.
+  agent: data_synthesis_agent
+  inputs:
+    - name: {lead}
+      type: string
+      description: The name of the lead for whom the summary is generated.
+    - name: {services}
+      type: string
+      description: The services the user is interested in offering to the lead.
+    - name: web_data
+      type: json
+      description: Data retrieved from the Fetch Web Data task.
+    - name: linkedin_data
+      type: json
+      description: Data retrieved from the Fetch LinkedIn Data task.
+    - name: crm_data
+      type: json
+      description: Data retrieved from the Fetch CRM Data task.
+  outputs:
+    - name: lead_summary
+      type: string
+      description: A formatted one-page summary for the lead, including bio, conversation starters, service suggestions, and next steps.
+      output_file: report.md
