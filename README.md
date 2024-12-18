@@ -69,11 +69,11 @@ This workflow is particularly useful for sales teams, account managers, and busi
 ### 1. **Web Search Agent**
 - **Role:** Web Data Specialist
 - **Description:**
-   Retrieves publicly available data about a lead using the **Bing Web Search API**.
+   Retrieves publicly available data about a lead using the **Serper Dev Tool**.
 - **Responsibilities:**
    - Execute targeted web searches.
    - Summarize relevant articles, company information, and mentions.
-- **Tools:** Bing Web Search API
+- **Tools:** Serper Dev Tool
 - **Outputs:** JSON data containing lead-related web information.
 
 ### 2. **LinkedIn Query Agent**
@@ -102,7 +102,7 @@ This workflow is particularly useful for sales teams, account managers, and busi
 - **Responsibilities:**
    - Synthesize all gathered data into actionable insights.
    - Create a formatted one-pager with bio, conversation starters, potential services, and next steps.
-- **Tools:** OpenAI GPT (text-davinci-003)
+- **Tools:** OpenAI GPT-4o
 - **Outputs:** Formatted text summary (one-pager).
 
 ---
@@ -150,7 +150,7 @@ This workflow is particularly useful for sales teams, account managers, and busi
 ---
 
 ## How to Run the Workflow
-1. Configure API Keys for Bing Web Search, LinkedIn, and OpenAI in your environment.
+1. Configure API Keys for Serper Dev Tool, LinkedIn, and OpenAI in your environment.
 2. Deploy the CrewAI agents and tasks as defined.
 3. Run the workflow with the desired **Lead Name** and optional **Interested Services**.
 4. The system will output a one-page summary containing:
@@ -192,8 +192,8 @@ John Doe is a Senior Vice President at Acme Corp with over 15 years of experienc
 ---
 
 ## Dependencies
-- **APIs:** Bing Web Search, LinkedIn, Internal CRM
-- **LLM Model:** OpenAI GPT (text-davinci-003)
+- **APIs:** Serper Dev Tool, LinkedIn, Internal CRM
+- **LLM Model:** OpenAI GPT-4o
 - **Framework:** CrewAI
 
 ---
@@ -203,6 +203,5 @@ This project is licensed under the MIT License.
 
 ---
 
-## Contact
-For further questions or customization requests, contact [Your Name] at [your.email@example.com].
+
 
